@@ -4,7 +4,7 @@
       'target_name': 'example',
       # This is the only correct way to use node-addon-api with
       # exceptions enabled
-      'dependencies': [ '<!@(node -p \'require("node-addon-api").targets\'):node_addon_api_except' ],
+      'dependencies': [ '<!@(node -p "require(\'node-addon-api\').targets"):node_addon_api_except' ],
       'sources': [
         'src/example.cc',
         'src/array.cc',
