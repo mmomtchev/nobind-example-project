@@ -25,6 +25,6 @@ npm test
 Build with:
 
 ```shell
-npm run swig:debug
-node-gyp configure build --debug
+npm install
+npx node-gyp configure build --debug
 ```
