@@ -38,7 +38,66 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Build
-      run: npm install
+      run: |
+        npm install
+        node-gyp configure build --debug
 
     - name: Test
       run: npm test
+
+
+  asan:
+    runs-on: ubuntu-22.04
+    name: Address Sanitization
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Setup Node.js 18
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+
+    - name: Build
+      run: |
+        npm install
+        node-gyp configure build --debug -v
+      env:
+        CXXFLAGS: -fsanitize=address
+        LDFLAGS: -fsanitize=address
+
+    - name: Test
+      run: npm test
+      env:
+        LD_PRELOAD: /usr/lib/x86_64-linux-gnu/libasan.so.6
+        LSAN_OPTIONS: suppressions=${{ github.workspace }}/test/napi-leaks-suppression.txt
+
+
+  codecov:
+    runs-on: ubuntu-22.04
+    name: Code Coverage
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Build
+      run: |
+        npm install
+        node-gyp configure build --debug -v
+      env:
+        CXXFLAGS: -fprofile-arcs -ftest-coverage
+        LDFLAGS: -lgcov --coverage
+
+    - name: Test
+      run: |
+        npx c8 npm test
+        npm run gcov
+        npm run lcov
+ 
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4.0.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        directory: coverage
+        slug: mmomtchev/nobind-example-project
