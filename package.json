@@ -1,0 +1,54 @@
+{
+  "name": "nobind-example-project",
+  "version": "1.0.0",
+  "description": "Example template for using nobind17 for a Node.js C++ addon",
+  "type": "module",
+  "main": "./lib/example.cjs",
+  "types": "./lib/example.d.cts",
+  "scripts": {
+    "test": "npx mocha",
+    "lint": "clang-format -i src/*.cc src/*.h && eslint test",
+    "prepare": "",
+    "install": "",
+    "dev": "cd test/browser && npx webpack serve --mode=production",
+    "gcov": "mkdir -p coverage && cd coverage && gcov -o ../build/Debug/obj.target/example/build -o ../build/Debug/obj.target/example/src ../src/* ../build/*",
+    "lcov": "npx c8 report --reporter=text-lcov > coverage/tests.lcov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmomtchev/nobind-example-project.git"
+  },
+  "keywords": [
+    "swig",
+    "node-api",
+    "napi",
+    "wasm"
+  ],
+  "author": "Momtchil Momtchev <momtchil@momtchev.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmomtchev/nobind-example-project/issues"
+  },
+  "homepage": "https://github.com/mmomtchev/nobind-example-project#readme",
+  "dependencies": {
+    "@mapbox/node-pre-gyp": "^1.0.11",
+    "nobind17": "^1.2.0",
+    "node-addon-api": "^8.0.0",
+    "node-gyp": "^10.1.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.16",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "^20.14.9",
+    "@typescript-eslint/eslint-plugin": "^7.16.0",
+    "@typescript-eslint/parser": "^7.16.0",
+    "c8": "^10.1.2",
+    "chai": "^5.1.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-mocha": "^10.4.3",
+    "mocha": "^10.6.0",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  }
+}

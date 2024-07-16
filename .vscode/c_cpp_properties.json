@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/node_modules/nobind17/include",
+                "${workspaceFolder}/node_modules/node-addon-api",
+                "/usr/include/node"
+            ],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "c++17"
+        },
+        {
+            "name": "macOS",
+            "includePath": [
+                "${workspaceFolder}/node_modules/nobind17/include",
+                "${workspaceFolder}/node_modules/node-addon-api",
+                "/usr/local/include/node"
+            ],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}
