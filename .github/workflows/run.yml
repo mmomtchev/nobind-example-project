@@ -40,7 +40,7 @@ jobs:
     - name: Build
       run: |
         npm install
-        node-gyp configure build --debug
+        npx node-gyp configure build --debug
 
     - name: Test
       run: npm test
@@ -61,7 +61,7 @@ jobs:
     - name: Build
       run: |
         npm install
-        node-gyp configure build --debug -v
+        npx node-gyp configure build --debug -v
       env:
         CXXFLAGS: -fsanitize=address
         LDFLAGS: -fsanitize=address
@@ -84,7 +84,7 @@ jobs:
     - name: Build
       run: |
         npm install
-        node-gyp configure build --debug -v
+        npx node-gyp configure build --debug -v
       env:
         CXXFLAGS: -fprofile-arcs -ftest-coverage
         LDFLAGS: -lgcov --coverage
