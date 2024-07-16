@@ -8,9 +8,7 @@
   "scripts": {
     "test": "npx mocha",
     "lint": "clang-format -i src/*.cc src/*.h && eslint test",
-    "prepare": "",
-    "install": "",
-    "dev": "cd test/browser && npx webpack serve --mode=production",
+    "prepare": "node-gyp configure build",
     "gcov": "mkdir -p coverage && cd coverage && gcov -o ../build/Debug/obj.target/example/build -o ../build/Debug/obj.target/example/src ../src/* ../build/*",
     "lcov": "npx c8 report --reporter=text-lcov > coverage/tests.lcov"
   },
@@ -32,7 +30,7 @@
   "homepage": "https://github.com/mmomtchev/nobind-example-project#readme",
   "dependencies": {
     "@mapbox/node-pre-gyp": "^1.0.11",
-    "nobind17": "^1.2.0",
+    "nobind17": "^1.2.1",
     "node-addon-api": "^8.0.0",
     "node-gyp": "^10.1.0"
   },
@@ -44,7 +42,7 @@
     "@typescript-eslint/parser": "^7.16.1",
     "c8": "^10.1.2",
     "chai": "^5.1.1",
-    "eslint": "^9.7.0",
+    "eslint": "^8.57.0",
     "eslint-plugin-mocha": "^10.4.3",
     "mocha": "^10.6.0",
     "ts-loader": "^9.5.1",

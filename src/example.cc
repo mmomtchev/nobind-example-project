@@ -35,7 +35,7 @@ NOBIND_MODULE(example, m) {
     .cons<int>()
     .def<&IntObject::get>("get");
 
-  m.def<ReturnVector>("returnVector");
+  m.def<&ReturnVector>("returnVector");
   m.def<&ReadOnlyVector>("readOnlyVector");
 
   //
