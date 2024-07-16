@@ -10,7 +10,7 @@ It includes some non-trivial examples such as C buffers, vectors of objects and 
 
 ```shell
 git clone https://github.com/mmomtchev/nobind-example-project.git
-cd nobind-project
+cd nobind-example-project
 npm install
 ```
 
