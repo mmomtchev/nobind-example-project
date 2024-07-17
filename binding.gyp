@@ -15,10 +15,6 @@
         '<!@(node -p "require(\'nobind17\').include")'
       ],
       'cflags': [
-        # learn to alway use -fvisibility=hidden for Node.js addons
-        # one day it will save you horrible headaches as all Node.js
-        # addons live in the same symbol space
-        '-fvisibility=hidden',
         '-std=gnu++17'
       ],
       'msvs_settings': {
@@ -29,7 +25,6 @@
       },
       'xcode_settings': {
         'OTHER_CPLUSPLUSFLAGS': [
-          '-fvisibility=hidden',
           '-std=gnu++17'
         ]
       }
