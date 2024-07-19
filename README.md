@@ -7,6 +7,8 @@ This is an example skeleton for a C++ project that uses Nobind using the traditi
 
 It includes some non-trivial examples such as C buffers, vectors of objects and maps.
 
+You can check [`hadron-nobind-example-project`](https://github.com/mmomtchev/hadron-nobind-example-project) for the `hadron` version.
+
 # Try building yourself
 
 ## Build the project
