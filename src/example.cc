@@ -30,10 +30,7 @@ NOBIND_MODULE(example, m) {
   //
   // array.h
   //
-  m.def<IntObject>("IntObject")
-    .cons<>()
-    .cons<int>()
-    .def<&IntObject::get>("get");
+  m.def<IntObject>("IntObject").cons<>().cons<int>().def<&IntObject::get>("get");
 
   m.def<&ReturnVector>("returnVector");
   m.def<&ReadOnlyVector>("readOnlyVector");
@@ -42,13 +39,13 @@ NOBIND_MODULE(example, m) {
   // blob.h
   //
   m.def<Blob>("Blob")
-    .cons<>()
-    .cons<size_t>()
-    .cons<const Blob &>()
-    .def<&Blob::Fill>("fill")
-    // Use the wrappers instead of the original methods
-    .ext<&Blob_Export>("export")
-    .ext<&Blob_Write>("write");
+      .cons<>()
+      .cons<size_t>()
+      .cons<const Blob &>()
+      .def<&Blob::Fill>("fill")
+      // Use the wrappers instead of the original methods
+      .ext<&Blob_Export>("export")
+      .ext<&Blob_Write>("write");
 
   // There are no async wrappers, so this must be hidden in JavaScript
   // (see example.cjs)

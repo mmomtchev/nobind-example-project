@@ -19,7 +19,7 @@ describe('sync', () => {
   });
 
   it('create a new Blob from a Buffer', () => {
-    const buf = Buffer.from([1, 2, 3, 4])
+    const buf = Buffer.from([1, 2, 3, 4]);
     const blob = example.Blob.create(buf);
     assert.instanceOf(blob, example.Blob);
   });
