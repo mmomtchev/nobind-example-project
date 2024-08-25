@@ -36,6 +36,6 @@ public:
   ToJS(ToJS &&) = default;
 };
 
-}
+} // namespace Typemap
 
-}
+} // namespace Nobind
