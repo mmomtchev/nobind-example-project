@@ -41,6 +41,25 @@
           'destination': 'lib/binding'
         }
       ]
+    },
+    # TypeScript generation target
+    {
+      'target_name': 'lib/example.d.cts',
+      'type': 'none',
+      'dependencies': [ 'example' ],
+      'actions': [
+        {
+          'action_name': 'typescript_bindings',
+          'inputs': [ '<(PRODUCT_DIR)/example.node' ],
+          'outputs': [ 'lib/example.d.cts' ],
+          'action': [
+            'node',
+            'gen_typescript.js',
+            '<@(_inputs)',
+            '<@(_outputs)'
+          ]
+        }
+      ]
     }
   ]
 }
