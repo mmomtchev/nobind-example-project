@@ -57,7 +57,7 @@
             {
               'action_name': 'typescript_bindings',
               'inputs': [ '<(PRODUCT_DIR)/example.node' ],
-              'outputs': [ 'lib/example.d.cts' ],
+              'outputs': [ 'lib/binding/example.d.cts' ],
               'action': [
                 'node',
                 'gen_typescript.js',
