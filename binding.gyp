@@ -1,4 +1,7 @@
 {
+  'variables': {
+    'typescript%': 'true',
+  },
   'targets': [
     {
       'target_name': 'example',
@@ -42,24 +45,28 @@
         }
       ]
     },
-    # TypeScript generation target
-    {
-      'target_name': 'TypeScript',
-      'type': 'none',
-      'dependencies': [ 'example' ],
-      'actions': [
-        {
-          'action_name': 'typescript_bindings',
-          'inputs': [ '<(PRODUCT_DIR)/example.node' ],
-          'outputs': [ 'lib/example.d.cts' ],
-          'action': [
-            'node',
-            'gen_typescript.js',
-            '<@(_inputs)',
-            '<@(_outputs)'
+  ],
+  'conditions': [
+      ['typescript == "true"', {
+        'targets': [{
+          # TypeScript generation target
+          'target_name': 'TypeScript',
+          'type': 'none',
+          'dependencies': [ 'example' ],
+          'actions': [
+            {
+              'action_name': 'typescript_bindings',
+              'inputs': [ '<(PRODUCT_DIR)/example.node' ],
+              'outputs': [ 'lib/example.d.cts' ],
+              'action': [
+                'node',
+                'gen_typescript.js',
+                '<@(_inputs)',
+                '<@(_outputs)'
+              ]
+            }
           ]
-        }
-      ]
-    }
+        }]
+      }]
   ]
 }
