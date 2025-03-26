@@ -44,7 +44,7 @@
     },
     # TypeScript generation target
     {
-      'target_name': 'lib/example.d.cts',
+      'target_name': 'TypeScript',
       'type': 'none',
       'dependencies': [ 'example' ],
       'actions': [
