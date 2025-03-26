@@ -58,14 +58,10 @@ jobs:
         node-version: 18
 
     - name: Build w/o ASAN to generate TypeScript
-      run: |
-        npm install
-        npx node-gyp configure build
+      run: npm install
 
     - name: Build with ASAN w/o TypeScript
-      run: |
-        npm install
-        npx node-gyp configure build --debug --typescript=false
+      run: npx node-gyp configure build --debug --typescript=false
       env:
         CXXFLAGS: -fsanitize=address
         LDFLAGS: -fsanitize=address
