@@ -45,10 +45,12 @@ NOBIND_MODULE(example, m) {
       .def<&Blob::Fill>("fill")
       // Use the wrappers instead of the original methods
       .ext<&Blob_Export>("export")
-      .ext<&Blob_Write>("write");
-
-  // There are no async wrappers, so this must be hidden in JavaScript
-  // (see example.cjs)
+      .ext<&Blob_Write>("write")
+      // There are no async extensions, so this must be hidden in JavaScript
+      // (see example.cjs) and the TypeScript is manual
+      .typescript_fragment("writeAsync(arg0: Buffer): Promise<void>;")
+      // There are no static (factory) extensions either
+      .typescript_fragment("static create(arg0: Buffer): Blob;");
   m.def<&Blob_Write, Nobind::ReturnAsync>("Blob_writeAsync");
 
   // This is the factory that replaces the (uint8_t *data, size_t len)
