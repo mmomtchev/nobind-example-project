@@ -1,4 +1,7 @@
 {
+  'variables': {
+    'typescript%': 'true',
+  },
   'targets': [
     {
       'target_name': 'example',
@@ -41,6 +44,29 @@
           'destination': 'lib/binding'
         }
       ]
-    }
+    },
+  ],
+  'conditions': [
+      ['typescript == "true"', {
+        'targets': [{
+          # TypeScript generation target
+          'target_name': 'TypeScript',
+          'type': 'none',
+          'dependencies': [ 'example' ],
+          'actions': [
+            {
+              'action_name': 'typescript_bindings',
+              'inputs': [ '<(PRODUCT_DIR)/example.node' ],
+              'outputs': [ 'lib/binding/example.d.cts' ],
+              'action': [
+                'node',
+                'gen_typescript.js',
+                '<@(_inputs)',
+                '<@(_outputs)'
+              ]
+            }
+          ]
+        }]
+      }]
   ]
 }
