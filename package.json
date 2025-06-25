@@ -47,7 +47,7 @@
     "eslint": "^9.29.0",
     "eslint-plugin-mocha": "^11.1.0",
     "globals": "^16.2.0",
-    "mocha": "^11.7.0",
+    "mocha": "^11.7.1",
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
