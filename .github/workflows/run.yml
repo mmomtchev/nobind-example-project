@@ -57,20 +57,23 @@ jobs:
       with:
         node-version: 18
 
-    - name: Build
-      run: |
-        npm install
-        npx node-gyp configure build --debug -v
+    - name: Build w/o ASAN to generate TypeScript
+      run: npm install
+
+    - name: Build with ASAN w/o TypeScript
+      run: npx node-gyp configure build --debug --typescript=false
       env:
         CXXFLAGS: -fsanitize=address
         LDFLAGS: -fsanitize=address
-  
-    - name: Get ASAN library name
-      run: echo LD_PRELOAD=$(gcc -print-file-name=libasan.so) >> $GITHUB_ENV
+
+    - name: Find ASAN library
+      id: asan-lib
+      run: echo LD_PRELOAD=$(gcc -print-file-name=libasan.so) >> $GITHUB_OUTPUT
 
     - name: Test
       run: npm test
       env:
+        LD_PRELOAD: ${{ steps.asan-lib.outputs.LD_PRELOAD }}
         LSAN_OPTIONS: suppressions=${{ github.workspace }}/test/napi-leaks-suppression.txt
 
 
