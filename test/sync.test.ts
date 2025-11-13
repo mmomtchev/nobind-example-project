@@ -4,6 +4,11 @@ import example from '../lib/example.cjs';
 // These are all the synchronous tests
 
 describe('sync', () => {
+  // Testing for memory leaks with ASAN requires this
+  afterEach(() => {
+    if (globalThis.gc) globalThis.gc();
+  });
+
   it('create a new null Blob', () => {
     const blob = new example.Blob;
     const buf = blob.export();
