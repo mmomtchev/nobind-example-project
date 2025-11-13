@@ -4,6 +4,10 @@ import example from '../lib/example.cjs';
 // These are all the asynchronous tests
 
 describe('async', () => {
+  // Testing for memory leaks with ASAN requires this
+  afterEach(() => {
+    if (globalThis.gc) globalThis.gc();
+  });
 
   it('write into an existing ArrayBuffer', (done) => {
     const blob = new example.Blob(10);
