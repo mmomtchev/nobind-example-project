@@ -46,7 +46,7 @@
     "chai": "^6.2.2",
     "eslint": "^9.39.2",
     "eslint-plugin-mocha": "^11.2.0",
-    "globals": "^17.2.0",
+    "globals": "^17.3.0",
     "mocha": "^11.7.5",
     "ts-loader": "^9.5.4",
     "ts-node": "^10.9.2",
