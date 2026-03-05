@@ -4,18 +4,18 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    open-pull-requests-limit: 1
     cooldown:
       default-days: 15
+    open-pull-requests-limit: 1
     groups:
-      eslint:
+      eslint_typescript:
         patterns:
         - "*eslint*"
-        exclude-patterns:
         - "*typescript*"
-      typescript:
+      emnapi:
         patterns:
-        - "*typescript*"
+        - "*emnapi*"
+
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
