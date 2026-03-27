@@ -31,7 +31,7 @@
   "dependencies": {
     "@mapbox/node-pre-gyp": "^2.0.3",
     "nobind17": "^2.0.1",
-    "node-addon-api": "^8.6.0",
+    "node-addon-api": "^8.7.0",
     "node-gyp": "^12.2.0"
   },
   "devDependencies": {
@@ -40,7 +40,7 @@
     "@types/chai": "^5.2.3",
     "@types/mocha": "^10.0.10",
     "@types/node": "^25.5.0",
-    "@typescript-eslint/eslint-plugin": "^8.57.1",
+    "@typescript-eslint/eslint-plugin": "^8.57.2",
     "@typescript-eslint/parser": "^8.32.1",
     "c8": "^11.0.0",
     "chai": "^6.2.2",
@@ -50,6 +50,6 @@
     "mocha": "^11.7.5",
     "ts-loader": "^9.5.4",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.2"
   }
 }
