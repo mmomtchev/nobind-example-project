@@ -31,25 +31,25 @@
   "dependencies": {
     "@mapbox/node-pre-gyp": "^2.0.3",
     "nobind17": "^2.0.1",
-    "node-addon-api": "^8.8.0",
-    "node-gyp": "^12.3.0"
+    "node-addon-api": "^8.9.1",
+    "node-gyp": "^13.0.1"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.5",
+    "@eslint/eslintrc": "^3.3.6",
     "@eslint/js": "^10.0.1",
     "@types/chai": "^5.2.3",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^25.9.1",
-    "@typescript-eslint/eslint-plugin": "^8.60.0",
+    "@types/node": "^26.2.0",
+    "@typescript-eslint/eslint-plugin": "^8.66.0",
     "@typescript-eslint/parser": "^8.32.1",
-    "c8": "^11.0.0",
+    "c8": "^12.0.0",
     "chai": "^6.2.2",
-    "eslint": "^10.4.0",
-    "eslint-plugin-mocha": "^11.3.0",
+    "eslint": "^10.8.1",
+    "eslint-plugin-mocha": "^12.0.2",
     "globals": "^17.6.0",
-    "mocha": "^11.7.6",
-    "ts-loader": "^9.5.7",
+    "mocha": "^11.8.0",
+    "ts-loader": "^9.6.2",
     "ts-node": "^10.9.2",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   }
 }
